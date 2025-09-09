@@ -13,6 +13,7 @@
   --color-logoBlue: #3558BE;
   --color-loginBg: #f3f4f6;
   --color-loginFormBg: #ffffff;
+  --color-headerBg: #ffffff;
 }
 
 /* @media (prefers-color-scheme: dark) {

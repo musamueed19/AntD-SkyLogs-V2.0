@@ -28,28 +28,18 @@ const DashboardLayout = ({ children }) => {
         }}
       >
         <Sidebar theme={theme} collapsed={collapsed} />
-        <Button
-          style={{
-            position: "fixed",
-            bottom: "10px",
-            left: "10px",
-            fontSize: "18px",
-          }}
-          type="text"
-          icon={collapsed ? <MenuUnfoldOutlined color="#fff" /> : <MenuFoldOutlined color="#fff" />}
-          onClick={() => setCollapsed(!collapsed)}
-        />
       </Sider>
       <Layout theme={theme}className="flex-1 w-fit">
-        <Header
+        {/* <Header
           theme={theme}
           style={{
-            paddingBottom: "12px",
+            margin: "0",
+            paddingTop: "12px",
             backgroundColor: "#fff",
           }}
-        >
-          <AppHeader setTheme={setTheme} />
-        </Header>
+        > */}
+          <AppHeader setTheme={setTheme} setCollapsed={setCollapsed} collapsed={collapsed} />
+        {/* </Header> */}
         <Content className="p-5" theme={theme}>
           <main>{children}</main>
         </Content>

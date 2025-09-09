@@ -2,7 +2,7 @@
 
 import CreateUser from "@/components/userModule/CreateUser";
 import EditUser from "@/components/userModule/EditUser";
-import UserTable from "@/components/UserTable";
+import UserTable from "@/components/userModule/UserTable";
 import { Button, Flex, Modal } from "antd";
 import { useState } from "react";
 
