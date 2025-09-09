@@ -15,7 +15,7 @@ const DashboardLayout = ({ children }) => {
   const [theme, setTheme] = useState("light");
 
   return (
-    <Layout>
+    <Layout className="flex">
       <Sider
         breakpoint="md"
         theme={theme}
@@ -40,7 +40,7 @@ const DashboardLayout = ({ children }) => {
           onClick={() => setCollapsed(!collapsed)}
         />
       </Sider>
-      <Layout theme={theme}>
+      <Layout theme={theme}className="flex-1 w-fit">
         <Header
           theme={theme}
           style={{

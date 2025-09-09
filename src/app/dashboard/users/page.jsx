@@ -1,19 +1,16 @@
 "use client";
 
-import CreateUser from "@/components/CreateUser";
+import CreateUser from "@/components/userModule/CreateUser";
+import EditUser from "@/components/userModule/EditUser";
 import UserTable from "@/components/UserTable";
 import { Button, Flex, Modal } from "antd";
 import { useState } from "react";
 
 const UsersPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
+  const [modalType, setModalType] = useState("");
+
   const handleOk = () => {
-    setIsModalOpen(false);
-  };
-  const handleCancel = () => {
     setIsModalOpen(false);
   };
 
@@ -22,22 +19,32 @@ const UsersPage = () => {
       <h1 className="font-medium text-2xl mb-6">Users</h1>
 
       <Flex className="w-full" justify="end">
-        <Button type="primary" onClick={() => showModal()}>
+        <Button
+          type="primary"
+          onClick={() => {
+            setIsModalOpen(true);
+            setModalType("add");
+          }}
+        >
           Create User
         </Button>
       </Flex>
 
       {/* UserTable */}
-      <UserTable />
+      <UserTable setModalType={setModalType} setIsModalOpen={setIsModalOpen} />
 
       <Modal
-        title="Create User"
         closable={{ "aria-label": "Custom Close Button" }}
         open={isModalOpen}
         onOk={handleOk}
-        onCancel={handleCancel}
+        onCancel={handleOk}
+        footer={null}
       >
-        <CreateUser />
+        {modalType === "add" ? (
+          <CreateUser />
+        ) : (
+          modalType === "edit" && <EditUser />
+        )}
       </Modal>
     </div>
   );
