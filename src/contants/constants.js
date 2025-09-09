@@ -10,31 +10,31 @@ export const menuItems = [
   {
     key: 1,
     icon: <UserOutlined />,
-    label: <Link href={'/dashboard/users'}>Users</Link>,
+    label: <Link href={"/dashboard/users"}>Users</Link>,
   },
   {
     key: 2,
     icon: <CarryOutOutlined />,
-    label: <Link href={'/dashboard/attendance'}>Attendance</Link>,
+    label: <Link href={"/dashboard/attendance"}>Attendance</Link>,
   },
   {
     key: 3,
     icon: <OrderedListOutlined />,
-    label: <Link href={'/dashboard/leaves'}>Leaves</Link>,
+    label: <Link href={"/dashboard/leaves"}>Leaves</Link>,
   },
   {
     key: 4,
     icon: <ProjectOutlined />,
-    label: <Link href={'/dashboard/projects'}>Projects</Link>,
+    label: <Link href={"/dashboard/projects"}>Projects</Link>,
   },
   {
     key: 5,
     icon: <UserOutlined />,
-    label: <Link href={'/dashboard/payroll'}>Payroll</Link>,
+    label: <Link href={"/dashboard/payroll"}>Payroll</Link>,
   },
   {
     key: 6,
     icon: <LogoutOutlined />,
-    label: "Logout",
+    label: <Link href={"/login"}>Logout</Link>,
   },
 ];

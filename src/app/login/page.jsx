@@ -5,7 +5,7 @@ import React from "react";
 const LoginPage = () => {
   return (
     <div className="flex items-center justify-center h-screen bg-loginBg">
-      <div className="px-6 w-full h-full sm:h-fit max-w-lg py-12 rounded-lg border-gray-200 shadow-md border bg-loginFormBg">
+      <div className="px-6 md:px-8 w-full h-full sm:h-fit max-w-lg py-12 rounded-lg border-gray-200 shadow-md border bg-loginFormBg">
         <div className="flex justify-center flex-col w-full">
           {/* Logo */}
           <div className="flex items-center justify-center w-full">
