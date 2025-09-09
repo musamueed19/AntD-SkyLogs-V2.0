@@ -1,19 +1,20 @@
 "use client";
 
 import React, { useState } from "react";
-import { Modal, Space, Table, Tag, Tooltip, Card } from "antd";
+import { Modal, Space, Table, Tag, Tooltip, Card, Tabs } from "antd";
 import { rows } from "@/contants/userData";
 import {
   EditOutlined,
   TableOutlined,
   AppstoreOutlined,
 } from "@ant-design/icons";
+import TableViewTabs from "../TableViewTabs";
 
 const UserTable = ({ setModalType, setIsModalOpen }) => {
   const [data, setData] = useState(rows);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
-  const [viewMode, setViewMode] = useState("table"); // 👈 table | card
+  const [viewMode, setViewMode] = useState("table");
 
   const columns = [
     {
@@ -82,23 +83,7 @@ const UserTable = ({ setModalType, setIsModalOpen }) => {
     <div className="my-3">
       {/* 🔹 View Switcher */}
       <div className="flex justify-end gap-3 mb-3">
-        <Tooltip title="Table View">
-          <TableOutlined
-            className={`cursor-pointer text-xl ${
-              viewMode === "table" ? "text-blue-600" : "text-gray-500"
-            }`}
-            onClick={() => setViewMode("table")}
-          />
-        </Tooltip>
-
-        <Tooltip title="Card View">
-          <AppstoreOutlined
-            className={`cursor-pointer text-xl ${
-              viewMode === "card" ? "text-blue-600" : "text-gray-500"
-            }`}
-            onClick={() => setViewMode("card")}
-          />
-        </Tooltip>
+        <TableViewTabs viewMode={viewMode} setViewMode={setViewMode} />
       </div>
 
       {/* 🔹 Conditional Render */}

@@ -1,5 +1,6 @@
 "use client";
 
+import TableViewTabs from "@/components/TableViewTabs";
 import CreateUser from "@/components/userModule/CreateUser";
 import EditUser from "@/components/userModule/EditUser";
 import UserTable from "@/components/userModule/UserTable";
@@ -18,7 +19,8 @@ const UsersPage = () => {
     <div className="">
       <h1 className="font-medium text-2xl mb-6">Users</h1>
 
-      <Flex className="w-full" justify="end">
+      <div className="flex items-center justify-end gap-x-3 w-full">
+        {/* Add Buttion */}
         <Button
           type="primary"
           onClick={() => {
@@ -28,7 +30,7 @@ const UsersPage = () => {
         >
           Create User
         </Button>
-      </Flex>
+      </div>
 
       {/* UserTable */}
       <UserTable setModalType={setModalType} setIsModalOpen={setIsModalOpen} />
