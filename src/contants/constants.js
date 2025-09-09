@@ -1,4 +1,4 @@
-import { CarryOutOutlined, LogoutOutlined, OrderedListOutlined, PieChartOutlined, ProjectOutlined, UserOutlined } from "@ant-design/icons";
+import { CarryOutOutlined, FolderOutlined, LogoutOutlined, OrderedListOutlined, PieChartOutlined, ProjectOutlined, UserOutlined } from "@ant-design/icons";
 import Link from "next/link";
 
 export const menuItems = [
@@ -8,32 +8,37 @@ export const menuItems = [
   //   label: <Link href={'/dashboard'}>Dashboard</Link>,
   // },
   {
-    key: 1,
+    key: "users",
     icon: <UserOutlined />,
     label: <Link href={"/dashboard/users"}>Users</Link>,
   },
   {
-    key: 2,
+    key: "attendance",
     icon: <CarryOutOutlined />,
     label: <Link href={"/dashboard/attendance"}>Attendance</Link>,
   },
   {
-    key: 3,
+    key: "timeLogs",
+    icon: <CarryOutOutlined />,
+    label: <Link href={"/dashboard/timeLogs"}>Time Logs</Link>,
+  },
+  {
+    key: "leaves",
     icon: <OrderedListOutlined />,
     label: <Link href={"/dashboard/leaves"}>Leaves</Link>,
   },
   {
-    key: 4,
-    icon: <ProjectOutlined />,
+    key: "projects",
+    icon: <FolderOutlined />,
     label: <Link href={"/dashboard/projects"}>Projects</Link>,
   },
   {
-    key: 5,
+    key: "payroll",
     icon: <UserOutlined />,
     label: <Link href={"/dashboard/payroll"}>Payroll</Link>,
   },
   {
-    key: 6,
+    key: "logout",
     icon: <LogoutOutlined />,
     label: <Link href={"/login"}>Logout</Link>,
   },

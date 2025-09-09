@@ -1,44 +1,77 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Space, Table, Tag } from "antd";
-const columns = [
+import { rows } from "@/contants/userData";
+
+export const columns = [
+  {
+    title: "Sr.",
+    dataIndex: "id",
+    key: "id",
+    sorter: (a, b) => a.id > b.id
+  },
   {
     title: "Name",
     dataIndex: "name",
-    key: "name",
+    key: "id",
+    sorter: (a, b) => a.name > b.name,
     render: (text) => <a>{text}</a>,
   },
   {
-    title: "Age",
-    dataIndex: "age",
-    key: "age",
+    title: "Job Type",
+    dataIndex: "jobType",
+    key: "id",
   },
   {
-    title: "Address",
-    dataIndex: "address",
-    key: "address",
+    title: "Phone #",
+    dataIndex: "phone",
+    key: "id",
   },
   {
-    title: "Tags",
-    key: "tags",
-    dataIndex: "tags",
-    render: (_, { tags }) => (
-      <>
-        {tags.map((tag) => {
-          let color = tag.length > 5 ? "geekblue" : "green";
-          if (tag === "loser") {
-            color = "volcano";
-          }
-          return (
-            <Tag color={color} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          );
-        })}
-      </>
-    ),
+    title: "Status",
+    dataIndex: "status",
+    key: "id",
+    filters: [
+      {text: "Active", value: "Active"},
+      {text: "Inactive", value: "Inactive"},
+    ],
+    onFilter: (value, record) => {
+      return record.status === value;
+    }
   },
+  {
+    title: "Department",
+    dataIndex: "department",
+    key: "id",
+    sorter: (a, b) => a.department > b.department,
+  },
+  {
+    title: "Join Date",
+    dataIndex: "joinDate",
+    sorter: (a, b) => a.joinDate - b.joinDate,
+    key: "id",
+  },
+  // {
+  //   title: "Tags",
+  //   key: "tags",
+  //   dataIndex: "tags",
+  //   render: (_, { tags }) => (
+  //     <>
+  //       {tags.map((tag) => {
+  //         let color = tag.length > 5 ? "geekblue" : "green";
+  //         if (tag === "loser") {
+  //           color = "volcano";
+  //         }
+  //         return (
+  //           <Tag color={color} key={tag}>
+  //             {tag.toUpperCase()}
+  //           </Tag>
+  //         );
+  //       })}
+  //     </>
+  //   ),
+  // },
   {
     title: "Action",
     key: "action",
@@ -50,33 +83,28 @@ const columns = [
     ),
   },
 ];
-const data = [
-  {
-    key: "1",
-    name: "John Brown",
-    age: 32,
-    address: "New York No. 1 Lake Park",
-    tags: ["nice", "developer"],
-  },
-  {
-    key: "2",
-    name: "Jim Green",
-    age: 42,
-    address: "London No. 1 Lake Park",
-    tags: ["loser"],
-  },
-  {
-    key: "3",
-    name: "Joe Black",
-    age: 32,
-    address: "Sydney No. 1 Lake Park",
-    tags: ["cool", "teacher"],
-  },
-];
-const UserTable = () => (
-  <div className="my-3">
-    <Table columns={columns} dataSource={data} />
-  </div>
-);
+
+const UserTable = () => {
+  const [data, setData] = useState(rows);
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
+
+  return (
+    <div className="my-3">
+      <Table
+        columns={columns}
+        dataSource={data}
+        pagination={{
+          page: page,
+          pageSize: pageSize,
+          onChange: (page, pageSize) => {
+            setPage(page), setPageSize(pageSize);
+          },
+          total: 500
+        }}
+      />
+    </div>
+  );
+};
 
 export default UserTable;
