@@ -2,11 +2,11 @@ import { CarryOutOutlined, LogoutOutlined, OrderedListOutlined, PieChartOutlined
 import Link from "next/link";
 
 export const menuItems = [
-  {
-    key: 0,
-    icon: <PieChartOutlined />,
-    label: <Link href={'/dashboard'}>Dashboard</Link>,
-  },
+  // {
+  //   key: 0,
+  //   icon: <PieChartOutlined />,
+  //   label: <Link href={'/dashboard'}>Dashboard</Link>,
+  // },
   {
     key: 1,
     icon: <UserOutlined />,
