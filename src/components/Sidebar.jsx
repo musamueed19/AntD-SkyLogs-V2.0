@@ -3,7 +3,7 @@ import React from 'react'
 import Logo from './Logo'
 import { menuItems } from '@/contants/constants'
 
-const Sidebar = ({ collapsed }) => {
+const Sidebar = ({ theme, collapsed }) => {
   return (
     <>
       <Flex align="center" justify="center">
@@ -20,8 +20,9 @@ const Sidebar = ({ collapsed }) => {
       </Flex>
 
       <Menu
+        theme={theme}
         mode="inline"
-        defaultSelectedKeys={["1"]}
+        defaultSelectedKeys={["0"]}
         className="flex flex-col gap-2 mt-6 font-medium"
         style={{
           fontSize: "16px",

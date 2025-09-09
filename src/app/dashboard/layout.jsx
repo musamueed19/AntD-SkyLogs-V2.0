@@ -6,16 +6,19 @@ import { useState } from "react";
 
 // icons
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
+import AppHeader from "@/components/AppHeader";
 
 const { Sider, Header, Content } = Layout;
 
 const DashboardLayout = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false);
+  const [theme, setTheme] = useState("light");
 
   return (
     <Layout>
       <Sider
-        theme="light"
+        breakpoint="md"
+        theme={theme}
         trigger={null}
         collapsible
         collapsed={collapsed}
@@ -24,7 +27,7 @@ const DashboardLayout = ({ children }) => {
           backgroundColor: "#3558BE",
         }}
       >
-        <Sidebar collapsed={collapsed} />
+        <Sidebar theme={theme} collapsed={collapsed} />
         <Button
           style={{
             position: "fixed",
@@ -33,19 +36,22 @@ const DashboardLayout = ({ children }) => {
             fontSize: "18px",
           }}
           type="text"
-          icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+          icon={collapsed ? <MenuUnfoldOutlined color="#fff" /> : <MenuFoldOutlined color="#fff" />}
           onClick={() => setCollapsed(!collapsed)}
         />
       </Sider>
-      <Layout>
+      <Layout theme={theme}>
         <Header
+          theme={theme}
           style={{
-            paddingTop: "12px",
+            paddingBottom: "12px",
             backgroundColor: "#fff",
           }}
-        ></Header>
-        <Content className="p-5">
-          <div>{children}</div>
+        >
+          <AppHeader setTheme={setTheme} />
+        </Header>
+        <Content className="p-5" theme={theme}>
+          <main>{children}</main>
         </Content>
       </Layout>
     </Layout>
